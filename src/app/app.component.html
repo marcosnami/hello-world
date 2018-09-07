@@ -1,5 +1,21 @@
 <h1>Welcome to Angular!</h1>
 <courses></courses>
+<br>
 <authors></authors>
-<favorite></favorite>
+<br>
+<favorite [is-favorite]="post.isFavorite" (is-change)="onFavoriteChanged($event)"></favorite>
+<br>
 <pipes></pipes>
+<br>
+<bootstrap-panel>
+    <ng-container class="heading">Heading</ng-container>
+    <div class="body">
+        <h2>Body</h2>
+        <p>Write something here ...</p>
+    </div>
+</bootstrap-panel>
+<br>
+<like
+    [likes-count]="tweet.likesCount"
+    [is-active]="tweet.isLiked">
+</like>
