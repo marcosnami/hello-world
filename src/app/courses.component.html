@@ -1,0 +1,72 @@
+<ul>
+    <li *ngFor="let course of courses">{{ course }}</li>
+</ul>
+<hr>
+<img src="{{ imageUrl }}" />
+<img [src]="imageUrl" />
+<hr>
+<table border=2>
+    <tr>
+        <td [attr.colspan]="colSpan">{{ data }}</td>
+    </tr>
+</table>
+<hr>
+<button class="btn btn-primary" [class.active]="isActive">Save</button>
+<br>
+<button class="btn" [style.backgroundColor]="isActive ? 'pink' : 'white'">Save</button>
+<br>
+<div (click)="onDivClicked()">
+    <button class="btn btn-secondary" (click)="onSave($event)">Save</button>
+</div>
+<br>
+<input (keyup.enter)="onKeyUp($event)"/>
+<br>
+<input #email (keyup.enter)="onKeyUpEmail(email.value)"/>
+<br>
+<p>two-way binding</p>
+<input [(ngModel)]="email2" (keyup.enter)="onKeyUpTwoWay()"/>
+<hr>
+{{ course.title | uppercase | lowercase | titlecase }} <br>
+{{ course.rating | number:'2.2-2' }} <br>
+{{ course.students | number }} <br>
+{{ course.price | currency:'BRL':'symbol':'2.2-2' }} <br>
+{{ course.percent | percent:'2.1-1' }} <br>
+{{ course.releaseDate | date:'MM/dd/yyyy' }} <br>
+<hr>
+{{ text | summary:20 }}
+<hr>
+<div *ngIf="numbers.length > 0; then numbersList else noNumbers"></div>
+<ng-template #numbersList>
+    <h1>List of Numbers</h1>
+</ng-template>
+<ng-template #noNumbers>
+    <h1>No Numbers to Display</h1>
+</ng-template>
+<hr>
+<div [hidden]="numbers.length == 0">
+    List of Numbers using hidden element
+</div>
+<div [hidden]="numbers.length > 0">
+    No Numbers using hidden
+</div>
+<hr>
+<ul class="nav nav-pills">
+    <li [class.active]="viewMode == 'map'"><a (click)="viewMode = 'map'">Map View</a></li>
+    <li [class.active]="viewMode == 'list'"><a (click)="viewMode = 'list'">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">Map View Content</div>
+    <div *ngSwitchCase="'list'">List View Content</div>
+    <div *ngSwitchDefault>Other View Content</div>
+</div>
+<hr>
+<button (click)="onAdd()">Add Courses</button>
+<ul>
+    <li *ngFor="let courseFor of coursesFor; index as i; even as evenRow">
+        {{ i }} - {{ courseFor.name }} - {{ courseFor.id }} 
+        <span *ngIf="evenRow">(EVEN)</span>
+        <button (click)="onRemove(courseFor)">Delete</button>
+        <button (click)="onChange(courseFor)">Update</button>
+    </li>
+</ul>
+<hr>
