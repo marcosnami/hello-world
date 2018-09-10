@@ -1,11 +1,19 @@
 <h1>Welcome to Angular!</h1>
 <courses></courses>
 <br>
+<hr>
+<br>
 <authors></authors>
+<br>
+<hr>
 <br>
 <favorite [is-favorite]="post.isFavorite" (is-change)="onFavoriteChanged($event)"></favorite>
 <br>
+<hr>
+<br>
 <pipes></pipes>
+<br>
+<hr>
 <br>
 <bootstrap-panel>
     <ng-container class="heading">Heading</ng-container>
@@ -14,6 +22,8 @@
         <p>Write something here ...</p>
     </div>
 </bootstrap-panel>
+<br>
+<hr>
 <br>
 <like
     [likes-count]="tweet.likesCount"
@@ -25,3 +35,10 @@
 <zippy zippyTitle="Shipping Details">
     Shipping Details Content
 </zippy>
+<br>
+<hr>
+<br>
+<contact-form></contact-form>
+<br>
+<hr>
+<br>
